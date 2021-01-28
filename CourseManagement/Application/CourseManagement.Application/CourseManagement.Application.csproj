@@ -7,9 +7,7 @@
 
 
   <ItemGroup>
-    <Folder Include="Commands\" />
     <Folder Include="Interfaces\" />
-    <Folder Include="Queries\" />
     <Folder Include="Handlers\" />
     <Folder Include="Mapping\" />
   </ItemGroup>
