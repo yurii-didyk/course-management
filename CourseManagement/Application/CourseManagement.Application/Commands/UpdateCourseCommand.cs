@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CourseManagement.Application.Commands
 {
-    public class UpdateCourceCommand: IRequest<int>
+    public class UpdateCourseCommand: IRequest<int>
     {
         public int Id { get; set; }
         public string Name { get; set; }

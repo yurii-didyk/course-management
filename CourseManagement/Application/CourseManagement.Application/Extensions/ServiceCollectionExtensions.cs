@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CourseManagement.Application.Mapping;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -12,7 +13,10 @@ namespace CourseManagement.Application.Extensions
     { 
         public static void AddApplicationLayer(this IServiceCollection services)
         {
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddAutoMapper(cfg =>
+            {
+                cfg.AddProfile<CourseProfile>();
+            });
             services.AddMediatR(Assembly.GetExecutingAssembly());
         }
 

@@ -7,9 +7,8 @@
 
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
     <Folder Include="Handlers\" />
-    <Folder Include="Mapping\" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
 
 
@@ -19,6 +18,11 @@
     <PackageReference Include="MediatR" Version="9.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\CourseManagement.Domain\CourseManagement.Domain.csproj" />
   </ItemGroup>
 
 </Project>
