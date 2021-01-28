@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CourseManagement.Domain
+namespace CourseManagement.Application
 {
     public class Class1
     {
