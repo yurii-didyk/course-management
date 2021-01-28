@@ -18,6 +18,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseManagement.Infrastructure", "Intrastructure\CourseManagement.Infrastructure\CourseManagement.Infrastructure.csproj", "{CE668A16-F3AD-4419-9B96-3CCBD159E5F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseManagement.Application", "Application\CourseManagement.Application\CourseManagement.Application.csproj", "{88F1AD6F-FB9A-4548-9A5E-210784030CF8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{58508BC9-2F5B-4732-AABC-5775A8CAA46E} = {58508BC9-2F5B-4732-AABC-5775A8CAA46E}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
