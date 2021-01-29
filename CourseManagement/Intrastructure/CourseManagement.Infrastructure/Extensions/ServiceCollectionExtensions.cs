@@ -1,10 +1,9 @@
-﻿using CourseManagement.Infrastructure.Persistency.Context;
+﻿using CourseManagement.Domain.Interfaces;
+using CourseManagement.Infrastructure.Persistency.Context;
+using CourseManagement.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CourseManagement.Infrastructure.Extensions
 {
@@ -16,6 +15,8 @@ namespace CourseManagement.Infrastructure.Extensions
             {
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             });
+
+            services.AddScoped<ICoursesRepository, CoursesRepository>();
         }
     }
 }

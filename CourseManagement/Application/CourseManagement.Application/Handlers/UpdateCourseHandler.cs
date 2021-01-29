@@ -21,7 +21,9 @@ namespace CourseManagement.Application.Handlers
 
         public async Task<int> Handle(UpdateCourseCommand command, CancellationToken token)
         {
-            var course = _mapper.Map<Course>(command);
+            var course = _mapper.Map<UpdateCourseCommand, Course>(command, opt =>
+                opt.AfterMap((src, dest) => dest.SetTime(src.StartTime, src.EndTime)));
+
             return await _repository.UpdateCourse(course);
         }
     }

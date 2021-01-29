@@ -21,7 +21,19 @@ namespace CourseManagement.Infrastructure.Repositories
         }
 
         public async Task<IEnumerable<Course>> GetCourses() => await _context.Courses.ToListAsync();
-        public async Task<Course> GetCourse(int id) => await _context.Courses.FirstOrDefaultAsync(x => x.Id == id);
+
+        public async Task<Course> GetCourse(int id)
+        {
+            var course = await _context.Courses.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (course is null)
+            {
+                throw new CourseNotFoundException(id);
+            }
+
+            return course;
+        }
+
         public async Task<int> CreateCourse(Course course)
         {
             await _context.Courses.AddAsync(course);

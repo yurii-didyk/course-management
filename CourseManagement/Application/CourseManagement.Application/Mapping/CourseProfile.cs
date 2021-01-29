@@ -10,8 +10,12 @@ namespace CourseManagement.Application.Mapping
         public CourseProfile()
         {
             CreateMap<Course, CourseResponse>();
-            CreateMap<CreateCourseCommand, Course>();
-            CreateMap<UpdateCourseCommand, Course>();
+            CreateMap<CreateCourseCommand, Course>()
+                .ForMember(x => x.StartTime, opt => opt.Ignore())
+                .ForMember(x => x.EndTime, opt => opt.Ignore());
+            CreateMap<UpdateCourseCommand, Course>()
+                .ForMember(x => x.StartTime, opt => opt.Ignore())
+                .ForMember(x => x.EndTime, opt => opt.Ignore());
         }
     }
 }

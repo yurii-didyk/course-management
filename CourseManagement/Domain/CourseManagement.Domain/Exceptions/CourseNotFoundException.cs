@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseManagement.Domain.Exceptions.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,8 +12,8 @@ namespace CourseManagement.Domain.Exceptions
         public CourseNotFoundException(string message, Exception innerException) : base(message, innerException)
         { }
 
-        public CourseNotFoundException( int id)
-            : base($"Course ({id}) was not found.")
+        public CourseNotFoundException(int id)
+           : base($"Course ({id}) was not found.")
         {
         }
     }
