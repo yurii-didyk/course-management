@@ -15,9 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Intrastructure", "Intrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{452F715B-38C6-4E83-93D6-888E3E428A44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseManagement.Infrastructure", "Intrastructure\CourseManagement.Infrastructure\CourseManagement.Infrastructure.csproj", "{CE668A16-F3AD-4419-9B96-3CCBD159E5F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseManagement.Infrastructure", "Intrastructure\CourseManagement.Infrastructure\CourseManagement.Infrastructure.csproj", "{CE668A16-F3AD-4419-9B96-3CCBD159E5F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseManagement.Application", "Application\CourseManagement.Application\CourseManagement.Application.csproj", "{88F1AD6F-FB9A-4548-9A5E-210784030CF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseManagement.Application", "Application\CourseManagement.Application\CourseManagement.Application.csproj", "{88F1AD6F-FB9A-4548-9A5E-210784030CF8}"
 	ProjectSection(ProjectDependencies) = postProject
 		{58508BC9-2F5B-4732-AABC-5775A8CAA46E} = {58508BC9-2F5B-4732-AABC-5775A8CAA46E}
 	EndProjectSection

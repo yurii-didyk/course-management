@@ -1,8 +1,11 @@
 using CourseManagement.Application.Extensions;
+using CourseManagement.Infrastructure.Extensions;
+using CourseManagement.Infrastructure.Persistency.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -34,6 +37,7 @@ namespace CourseManagement.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CourseManagement.API", Version = "v1" });
             });
             services.AddApplicationLayer();
+            services.AddInfrastructureLayer(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,6 +60,12 @@ namespace CourseManagement.API
             {
                 endpoints.MapControllers();
             });
+
+            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetRequiredService<CourseDbContext>();
+                context.Database.Migrate();
+            }
         }
     }
 }

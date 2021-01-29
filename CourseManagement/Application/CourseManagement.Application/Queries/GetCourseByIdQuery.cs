@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace CourseManagement.Application.Queries
 {
-    public class GetCourseByIdQuery: IRequest<IEnumerable<CourseResponse>>
+    public class GetCourseByIdQuery: IRequest<CourseResponse>
     {
         public int Id { get; set; }
 

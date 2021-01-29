@@ -2,10 +2,7 @@
 using CourseManagement.Application.Mapping;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 
 namespace CourseManagement.Application.Extensions
 {
@@ -19,6 +16,5 @@ namespace CourseManagement.Application.Extensions
             });
             services.AddMediatR(Assembly.GetExecutingAssembly());
         }
-
     }
 }

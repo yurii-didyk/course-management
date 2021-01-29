@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CourseManagement.Application.Responses
 {
-    public class ProductResponse
+    public class CourseResponse
     {
         public int Id { get; set; }
         public string Name { get; set; }
