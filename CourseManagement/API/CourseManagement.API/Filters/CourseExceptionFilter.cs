@@ -65,7 +65,7 @@ namespace CourseManagement.API.Filters
             context.ExceptionHandled = true;
         }
 
-        private void HandleInvalidModelStateException(ExceptionContext context)
+        private static void HandleInvalidModelStateException(ExceptionContext context)
         {
             var details = new ValidationProblemDetails(context.ModelState)
             {
@@ -95,7 +95,7 @@ namespace CourseManagement.API.Filters
 
 
 
-        private void HandleUnknownException(ExceptionContext context)
+        private static void HandleUnknownException(ExceptionContext context)
         {
             var details = new ProblemDetails
             {
