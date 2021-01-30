@@ -1,17 +1,17 @@
-﻿using CourseManagement.Application.Commands;
+﻿using CourseManagement.API.Filters;
+using CourseManagement.Application.Commands;
 using CourseManagement.Application.Queries;
 using CourseManagement.Application.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace CourseManagement.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [CourseExceptionFilter]
     public class CourseController : ControllerBase
     {
         private readonly IMediator _mediator;
