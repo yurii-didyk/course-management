@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  coursedb:
+   image: mcr.microsoft.com/mssql/server
+
+  coursemanagement.api:
+    image: ${DOCKER_REGISTRY-}coursemanagementapi
+    build:
+      context: .
+      dockerfile: API/CourseManagement.API/Dockerfile

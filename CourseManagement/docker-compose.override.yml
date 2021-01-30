@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  coursedb:
+   container_name: coursedb
+   restart: always   
+   ports:
+    - "1433:1433"
+   volumes: 
+     - ./data:/mssqldata
+   environment:
+    SA_PASSWORD: "qwerTY123"
+    ACCEPT_EULA: "Y"
+  coursemanagement.api:
+   container_name: coursemanagementapi
+   restart: on-failure
+   environment:
+     - ASPNETCORE_ENVIRONMENT=Development
+     - "ConnectionStrings__DefaultConnection=Server=coursedb;Database=courses_db;User Id=sa;Password=qwerTY123"
+   depends_on:
+     - coursedb
+   volumes:
+     - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+   ports:
+    - "5002:80"
