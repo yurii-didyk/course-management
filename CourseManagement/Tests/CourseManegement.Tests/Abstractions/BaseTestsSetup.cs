@@ -15,21 +15,24 @@ namespace CourseManegament.Tests.Abstractions
         {
             var fakeRepository = new FakeRepository();
             var courses = new List<Course> {
-                new Course(
-                    "Data Structures",
-                    5000,
-                    new DateTime(2021, 01, 26, 10, 30, 00),
-                    new DateTime(2021, 01, 28, 15, 00, 00)
-                ),
-
-                new Course(
-                    "Math",
-                    6000,
-                    new DateTime(2021, 01, 26, 10, 30, 00),
-                     new DateTime(2021, 01, 28, 15, 00, 00)
-                )
+                new Course
+                {
+                    Id = 1,
+                    Name = "Data Structures",
+                    Price = 5000,
+                    StartTime = new DateTime(2021, 01, 26, 10, 30, 00),
+                    EndTime = new DateTime(2021, 01, 28, 15, 00, 00)
+                },
+                 new Course
+                {
+                    Id = 2,
+                    Name = "Math",
+                    Price = 6000,
+                    StartTime = new DateTime(2021, 01, 26, 10, 30, 00),
+                    EndTime = new DateTime(2021, 01, 28, 15, 00, 00)
+                },
             };
-            courses.ForEachWithIndex((x, index) => x.Id = index + 1);
+
             var tasks = courses.Select(x => fakeRepository.CreateCourse(x));
             await Task.WhenAll(tasks);
 

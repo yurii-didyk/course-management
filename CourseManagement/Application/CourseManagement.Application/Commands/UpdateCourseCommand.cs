@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CourseManagement.Application.Commands
 {
-    public class UpdateCourseCommand: IRequest<int>
+    public class UpdateCourseCommand: IRequest<int>, ICourseCommand
     {
         public int Id { get; set; }
         [Required]

@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using CourseManagement.Application.Mapping;
+using CourseManagement.Application.Validation.Behaviour;
+using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
@@ -15,6 +17,8 @@ namespace CourseManagement.Application.Extensions
                 cfg.AddProfile<CourseProfile>();
             });
             services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
         }
     }
 }

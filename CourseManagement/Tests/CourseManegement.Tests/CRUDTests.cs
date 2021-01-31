@@ -11,6 +11,10 @@ using System.Threading.Tasks;
 using System;
 using System.Threading;
 using CourseManegament.Tests.Abstractions;
+using FluentValidation;
+using CourseManagement.Application.Validation;
+using FluentValidation.TestHelper;
+
 
 namespace CourseManegament.Tests
 {
@@ -91,26 +95,6 @@ namespace CourseManegament.Tests
 
             //Assert
             Assert.AreEqual(course, 3);
-        }
-
-
-        [Test]
-        public void CreateCourseTest_Should_Throw_Validation_Exception()
-        {
-            //Arrange
-            var request = new CreateCourseCommand
-            {
-                Name = "Math",
-                Price = 5000,
-                StartTime = new DateTime(2021, 01, 30, 10, 00, 00),
-                EndTime = new DateTime(2021, 02, 04, 12, 00, 00),
-            };
-
-            var handler = new CreateCourseHandler(_mapper, _fakeRepository);
-
-
-            //Act && Assert
-            Assert.ThrowsAsync<CourseValidationException>(() => handler.Handle(request, new CancellationToken()));
         }
 
         [Test]

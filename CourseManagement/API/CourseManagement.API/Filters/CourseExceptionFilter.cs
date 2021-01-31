@@ -1,8 +1,10 @@
 ﻿using CourseManagement.Domain.Exceptions;
+using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace CourseManagement.API.Filters
@@ -16,8 +18,8 @@ namespace CourseManagement.API.Filters
             // Register known exception types and handlers.
             _exceptionHandlers = new Dictionary<Type, Action<ExceptionContext>>
             {
-                { typeof(CourseValidationException), HandleValidationException },
-                { typeof(CourseNotFoundException), HandleNotFoundException },
+                { typeof(ValidationException), HandleValidationException },
+                { typeof(CourseNotFoundException), HandleNotFoundException }
             };
         }
 
@@ -46,14 +48,10 @@ namespace CourseManagement.API.Filters
 
         private void HandleValidationException(ExceptionContext context)
         {
-            var exception = context.Exception as CourseValidationException;
+            var exception = context.Exception as ValidationException;
+            var issuesDict = exception.Errors.ToDictionary(x => x.PropertyName, x => new[] { x.ErrorMessage });
 
-            var dict = new Dictionary<string, string[]>()
-            {
-                {"Validation Failed", new string[] { exception.Message} }
-            };
-
-            var details = new ValidationProblemDetails(dict)
+            var details = new ValidationProblemDetails(issuesDict)
             {
                 Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1"
             };
