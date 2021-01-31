@@ -1,7 +1,7 @@
 ﻿using CourseManagement.Domain.Entities;
 using CourseManagement.Domain.Exceptions;
 using CourseManagement.Domain.Interfaces;
-using CourseManagement.Infrastructure.Persistency.Context;
+using CourseManagement.Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

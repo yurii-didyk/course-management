@@ -6,9 +6,9 @@ using System.Text;
 
 namespace CourseManagement.Domain.Helpers
 {
-    public static class ExceptionHelper
+    public static class ExceptionMessageHelper
     {
-        public static Exception GetException(bool isWeekDayCorrect, bool isTimeCorrect)
+        public static Exception GetExceptionAndPopulateMessage(bool isWeekDayCorrect, bool isTimeCorrect)
         {
             var reason = ValidationFailed.FinishedEarlierThanStarted;
 

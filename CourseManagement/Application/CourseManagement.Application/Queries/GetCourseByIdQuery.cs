@@ -1,6 +1,5 @@
 ﻿using CourseManagement.Application.Responses;
 using MediatR;
-using System.Collections.Generic;
 
 namespace CourseManagement.Application.Queries
 {

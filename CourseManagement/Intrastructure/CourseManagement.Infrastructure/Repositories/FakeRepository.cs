@@ -63,9 +63,10 @@ namespace CourseManagement.Infrastructure.Repositories
                 throw new CourseNotFoundException(course.Id);
             }
 
-            existingCourse.Name = course.Name;
-            existingCourse.Price = course.Price;
-            existingCourse.SetTime(course.StartTime, course.EndTime);
+            existingCourse = new Course(course.Name, course.Price, course.StartTime, course.EndTime)
+            {
+                Id = course.Id
+            };
 
             return Task.FromResult(existingCourse.Id);
         }

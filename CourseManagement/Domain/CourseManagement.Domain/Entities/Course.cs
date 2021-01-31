@@ -15,11 +15,16 @@ namespace CourseManagement.Domain.Entities
         [Required]
         public string Name { get; set; }
         public decimal Price { get; set; }
+        [Required]
         public DateTime StartTime { get; private set; }
+        [Required]
         public DateTime EndTime { get; private set; }
 
-        public void SetTime(DateTime startTime, DateTime endTime)
+        public Course(string name, decimal price, DateTime startTime, DateTime endTime)
         {
+            Name = name;
+            Price = price;
+
             var isStartTimeBeforeEndTime = startTime <= endTime;
             var isWeekDayCorrect = DateHelper.AllowedDaysOfWeek.Contains(startTime.DayOfWeek) &&
                 DateHelper.AllowedDaysOfWeek.Contains(endTime.DayOfWeek);
@@ -33,7 +38,7 @@ namespace CourseManagement.Domain.Entities
                 return;
             }
 
-            throw ExceptionHelper.GetException(isWeekDayCorrect, isTimeCorrect);
+            throw ExceptionMessageHelper.GetExceptionAndPopulateMessage(isWeekDayCorrect, isTimeCorrect);
         }
     }
 }

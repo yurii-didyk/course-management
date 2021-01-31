@@ -1,5 +1,5 @@
 ﻿using CourseManagement.Domain.Interfaces;
-using CourseManagement.Infrastructure.Persistency.Context;
+using CourseManagement.Infrastructure.Persistence.Context;
 using CourseManagement.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;

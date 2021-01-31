@@ -24,7 +24,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseManagement.Applicatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6CA6D68C-AFC4-4931-B75F-59A80932223D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseManegement.Tests", "Tests\CourseManegement.Tests\CourseManegement.Tests.csproj", "{9D942F4D-7A4C-4BED-9ED1-3AEF2DBA7071}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseManagement.Tests", "Tests\CourseManegement.Tests\CourseManagement.Tests.csproj", "{9D942F4D-7A4C-4BED-9ED1-3AEF2DBA7071}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{E90A6272-3BD4-41C7-AFF5-371125E363A8}"
 EndProject

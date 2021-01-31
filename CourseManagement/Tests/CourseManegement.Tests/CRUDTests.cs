@@ -13,10 +13,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using System;
 using System.Threading;
+using CourseManagement.Application.Extensions;
+using CourseManegament.Tests.Abstractions;
 
-namespace CourseManegement.Tests
+namespace CourseManegament.Tests
 {
-    public class CRUDTests
+    public class CRUDTests: BaseTestsSetup
     {
         private ICoursesRepository _fakeRepository;
         private IMapper _mapper;
@@ -24,7 +26,7 @@ namespace CourseManegement.Tests
         [SetUp]
         public async Task Setup()
         {
-            _fakeRepository = await GetRepository();
+            _fakeRepository = await GetAndInitializeRepository();
             _mapper = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new CourseProfile());
@@ -155,30 +157,6 @@ namespace CourseManegement.Tests
             //Assert
             Assert.AreEqual(id, 1);
             Assert.AreEqual(courses.Count(), 1);
-        }
-
-        private async Task<ICoursesRepository> GetRepository()
-        {
-            var fakeRepository = new FakeRepository();
-            var courses = new List<Course> {
-                new Course
-                {
-                    Id = 1,
-                    Price = 5000,
-                    Name = "Data Structures"
-                },
-                new Course
-                {
-                    Id = 2,
-                    Price = 6000,
-                    Name = "Philosophy"
-                },
-            };
-            courses.ForEach(x => x.SetTime(new DateTime(2021, 01, 26, 10, 30, 00), new DateTime(2021, 01, 28, 15, 00, 00)));
-            var tasks = courses.Select(x => fakeRepository.CreateCourse(x));
-            await Task.WhenAll(tasks);
-
-            return fakeRepository;
         }
     }
 }

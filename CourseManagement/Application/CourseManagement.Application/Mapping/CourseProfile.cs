@@ -11,11 +11,9 @@ namespace CourseManagement.Application.Mapping
         {
             CreateMap<Course, CourseResponse>();
             CreateMap<CreateCourseCommand, Course>()
-                .ForMember(x => x.StartTime, opt => opt.Ignore())
-                .ForMember(x => x.EndTime, opt => opt.Ignore());
+                .ConstructUsing(x => new Course(x.Name, x.Price, x.StartTime, x.EndTime));
             CreateMap<UpdateCourseCommand, Course>()
-                .ForMember(x => x.StartTime, opt => opt.Ignore())
-                .ForMember(x => x.EndTime, opt => opt.Ignore());
+                .ConstructUsing(x => new Course(x.Name, x.Price, x.StartTime, x.EndTime));
         }
     }
 }

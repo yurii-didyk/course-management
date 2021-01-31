@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace CourseManagement.API.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [CourseExceptionFilter]
     public class CourseController : ControllerBase
     {
