@@ -1,3 +1,4 @@
+using CourseManagement.API.Middlewares;
 using CourseManagement.Application.Extensions;
 using CourseManagement.Infrastructure.Extensions;
 using CourseManagement.Infrastructure.Persistence.Context;
@@ -49,11 +50,13 @@ namespace CourseManagement.API
 
             app.UseAuthorization();
 
+            app.UseMiddleware<GlobalExceptionMiddleware>();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-
+           
             using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
             {
                 var context = serviceScope.ServiceProvider.GetRequiredService<CourseDbContext>();

@@ -3,17 +3,13 @@ using CourseManagement.Application.Commands;
 using CourseManagement.Application.Handlers;
 using CourseManagement.Application.Mapping;
 using CourseManagement.Application.Queries;
-using CourseManagement.Domain.Entities;
 using CourseManagement.Domain.Exceptions;
 using CourseManagement.Domain.Interfaces;
-using CourseManagement.Infrastructure.Repositories;
 using NUnit.Framework;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System;
 using System.Threading;
-using CourseManagement.Application.Extensions;
 using CourseManegament.Tests.Abstractions;
 
 namespace CourseManegament.Tests
